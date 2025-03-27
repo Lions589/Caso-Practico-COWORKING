@@ -1,0 +1,21 @@
+﻿@model CoworkingGestion.Models.Usuario
+
+@{
+    ViewData["Title"] = "Detalle Usuario";
+
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Detalles del Usuario</h2>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Cédula:</strong> @Model.Ncedula</p>
+        <p><strong>Nombre:</strong> @Model.Nombre</p>
+        <p><strong>Apellido:</strong> @Model.Apellido</p>
+        <p><strong>Teléfono:</strong> @Model.Telefono</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Rol:</strong> @Model.Rol</p>
+    </div>
+</div>
+<a asp-action="Index" class="btn btn-secondary mt-3">Volver</a>

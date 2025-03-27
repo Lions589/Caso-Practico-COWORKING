@@ -1,0 +1,29 @@
+﻿@model CoworkingGestion.Models.PlanesMembresia
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Crear Plan";
+}
+
+<h2>Crear Plan de Membresía</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Nombre del Plan</label>
+        <input asp-for="NombrePlan" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Precio</label>
+        <input asp-for="Precio" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Duración</label>
+        <input asp-for="Duracion" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Descripción</label>
+        <textarea asp-for="Descripcion" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

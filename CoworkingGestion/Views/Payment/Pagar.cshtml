@@ -1,0 +1,29 @@
+﻿@model CoworkingGestion.Models.Reserva
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Pago Artificial";
+}
+
+<div class="container mt-4">
+    <h2>Pago para Reserva #@Model.IdReserva</h2>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Detalles de la Reserva</h6>
+        </div>
+        <div class="card-body">
+            <p><strong>Espacio:</strong> @Model.IdEspacioNavigation.Nombre</p>
+            @(Model.FechaReserva.HasValue ? Model.FechaReserva.Value.ToString("g") : "N/A")
+            <p><strong>Fecha de Inicio:</strong> @Model.FechaInicio.ToString("g")</p>
+            <p><strong>Fecha de Fin:</strong> @Model.FechaFin.ToString("g")</p>
+            <p><strong>Costo:</strong> @Model.Costo.ToString("C")</p>
+            <p><strong>Estado Actual:</strong> @Model.Estado</p>
+        </div>
+    </div>
+
+    <form asp-action="RealizarPago" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="reservaId" value="@Model.IdReserva" />
+        <button type="submit" class="btn btn-primary">Pagar</button>
+    </form>
+</div>

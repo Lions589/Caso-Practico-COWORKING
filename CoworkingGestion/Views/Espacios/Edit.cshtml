@@ -1,0 +1,14 @@
+﻿@model CoworkingGestion.Models.Espacio
+@{
+    ViewData["Title"] = "Editar Espacio";
+
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Editar Espacio</h2>
+<form asp-action="Edit">
+    <input type="hidden" asp-for="IdEspacio" />
+    <partial name="_FormEspacio" model="Model" />
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

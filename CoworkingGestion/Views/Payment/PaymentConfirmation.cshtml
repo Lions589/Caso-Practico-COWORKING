@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml"; // O el layout que uses para el Dashboard
+    ViewData["Title"] = "Confirmación de Pago";
+    var icsBase64 = TempData["IcsContent"] as string;
+    var successMessage = TempData["SuccessMessage"] as string;
+}
+
+<div class="container mt-4">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @successMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <p>Descargando archivo de reserva...</p>
+    <!-- Enlace oculto para iniciar la descarga del archivo ICS -->
+    <a id="downloadLink" href="data:text/calendar;base64,@icsBase64" download="reserva.ics" style="display:none;">Descargar ICS</a>
+</div>
+
+<script>
+    // Inicia la descarga automáticamente
+    document.getElementById("downloadLink").click();
+    // Después de 3 segundos, redirige a la vista de Reservas
+    setTimeout(function () {
+        window.location.href = '@Url.Action("Index", "Reservas")';
+    }, 3000);
+</script>

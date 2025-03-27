@@ -1,0 +1,45 @@
+﻿@model CoworkingGestion.Models.Membresia
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Crear Membresía";
+}
+
+<h2>Crear Membresía</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="IdUsuario">Usuario</label>
+        <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.Usuarios">
+            <option value="">Seleccione un usuario</option>
+        </select>
+        <span asp-validation-for="IdUsuario" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NombrePlan"></label>
+        <input asp-for="NombrePlan" class="form-control" />
+        <span asp-validation-for="NombrePlan" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Precio"></label>
+        <input asp-for="Precio" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Precio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Duracion"></label>
+        <input asp-for="Duracion" class="form-control" />
+        <span asp-validation-for="Duracion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Descripcion"></label>
+        <textarea asp-for="Descripcion" class="form-control"></textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

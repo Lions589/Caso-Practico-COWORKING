@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+
+@model CoworkingGestion.Models.ReportesViewModel
+
+<h2>Reporte de Reservas</h2>
+<table class="table table-bordered">
+    <thead><tr><th>Reserva</th><th>Usuario</th><th>Espacio</th><th>Fecha Inicio</th><th>Fecha Fin</th><th>Estado</th><th>Costo</th></tr></thead>
+    <tbody>
+        @foreach (var r in Model.ReporteReservas)
+        {
+            <tr>
+                <td>@r.IdReserva</td>
+                <td>@r.NombreUsuario</td>
+                <td>@r.Espacio</td>
+                <td>@r.FechaInicio</td>
+                <td>@r.FechaFin</td>
+                <td>@r.Estado</td>
+                <td>@r.Costo.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Reporte de Pagos</h2>
+<table class="table table-bordered">
+    <thead><tr><th>Pago</th><th>Usuario</th><th>Monto</th><th>Fecha</th><th>Método</th><th>Estado Reserva</th></tr></thead>
+    <tbody>
+        @foreach (var p in Model.ReportePagos)
+        {
+            <tr>
+                <td>@p.IdPago</td>
+                <td>@p.NombreUsuario</td>
+                <td>@p.Monto.ToString("C")</td>
+                <td>@p.FechaPago</td>
+                <td>@p.MetodoPago</td>
+                <td>@p.EstadoReserva</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Análisis de Uso</h2>
+<table class="table table-bordered">
+    <thead><tr><th>Espacio</th><th>Total Reservas</th><th>Ingresos</th><th>Primer Uso</th><th>Último Uso</th></tr></thead>
+    <tbody>
+        @foreach (var a in Model.AnalisisUso)
+        {
+            <tr>
+                <td>@a.Espacio</td>
+                <td>@a.TotalReservas</td>
+                <td>@Convert.ToDecimal(a.IngresosTotales).ToString("C")</td>
+                <td>@a.PrimerUso</td>
+                <td>@a.UltimoUso</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

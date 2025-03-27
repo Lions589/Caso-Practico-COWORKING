@@ -1,0 +1,193 @@
+﻿@model IEnumerable<CoworkingGestion.Models.Reserva>
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Reservas";
+}
+
+<h2>Reservas</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["QrImage"] != null)
+{
+    var qrBase64 = TempData["QrImage"] as string;
+    <div class="alert alert-info mt-3">
+        <h5 class="mb-2">Código QR generado</h5>
+        <img src="data:image/png;base64,@qrBase64" alt="QR Code" class="img-fluid" />
+    </div>
+}
+
+@if (User.IsInRole("Administrador"))
+{
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Reserva</a>
+</p>
+
+}
+
+<!-- Lista de Reservas -->
+<div class="container-fluid">
+   
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered"
+                       id="dataTable"
+                       width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Espacio</th>
+                            <th>Fecha Reserva</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Estado</th>
+                            <th>Costo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.IdReserva</td>
+                                <td>
+                                    @item.IdUsuarioNavigation.Nombre
+                                    @item.IdUsuarioNavigation.Apellido
+                                </td>
+                                <td>@item.IdEspacioNavigation.Nombre</td>
+                                <td>
+                                    @(item.FechaReserva.HasValue ?
+                                        item.FechaReserva.Value.ToString("g") : "N/A")
+                                </td>
+                                <td>@item.FechaInicio.ToString("g")</td>
+                                <td>@item.FechaFin.ToString("g")</td>
+                                <td>@item.Estado</td>
+                                <td>@item.Costo.ToString("C")</td>
+                                <td>
+                                    @if (User.IsInRole("Administrador"))
+                                    {
+                                    <a class="btn btn-sm btn-secondary"
+                                       asp-action="Edit"
+                                       asp-route-id="@item.IdReserva">Editar</a>
+                                    }
+                                    <a class="btn btn-sm btn-danger"
+                                       asp-action="Delete"
+                                       asp-route-id="@item.IdReserva">Eliminar</a>
+                                    @if (item.Estado.ToLower() != "pagado")
+                                    {
+                                        <a class="btn btn-sm btn-success"
+                                           asp-controller="Payment"
+                                           asp-action="Pagar"
+                                           asp-route-reservaId="@item.IdReserva">Pagar</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-sm btn-info"
+                                           asp-controller="Payment"
+                                           asp-action="DownloadIcs"
+                                           asp-route-reservaId="@item.IdReserva">Descargar ICS</a>
+                                        <a class="btn btn-sm btn-primary"
+                                           asp-controller="Payment"
+                                           asp-action="GenerarQR"
+                                           asp-route-reservaId="@item.IdReserva">Generar QR</a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Calendario -->
+<div class="container-fluid mb-4">
+    <h3 class="mt-3">Calendario de Reservas</h3>
+    <div id="calendar"></div>
+</div>
+
+
+@section Scripts {
+    
+
+    <!-- CSS de DataTables -->
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
+    <!-- JS de jQuery y DataTables -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+
+    <!-- Script para activar DataTable -->
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable({
+                scrollX: true,
+                scrollCollapse: true,
+                paging: true,
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
+                }
+            });
+        });
+    </script>
+
+
+    <!-- FullCalendar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            if (!calendarEl) {
+                console.error("❌ No se encontró el div con id 'calendar'");
+                return;
+            }
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+                events: '/Reservas/GetReservasCalendario',
+                eventColor: 'green',
+                eventDidMount: function(info) {
+                    console.log("Evento:", info.event.title);
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+}
+
+
+
+

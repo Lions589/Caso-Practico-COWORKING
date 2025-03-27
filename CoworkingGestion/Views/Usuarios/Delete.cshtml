@@ -1,0 +1,19 @@
+﻿@model CoworkingGestion.Models.Usuario
+
+@{
+    ViewData["Title"] = "Eliminar Usuario";
+
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Eliminar Usuario</h2>
+
+<h4>¿Estás seguro que deseas eliminar a <strong>@Model.Nombre @Model.Apellido</strong>?</h4>
+
+<div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdUsuario" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

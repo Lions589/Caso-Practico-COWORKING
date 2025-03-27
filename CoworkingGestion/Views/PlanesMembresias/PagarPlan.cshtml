@@ -1,0 +1,19 @@
+﻿@model CoworkingGestion.Models.PlanesMembresia
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Pagar Membresía";
+}
+
+<div class="container mt-4">
+    <h2>Confirmar Pago - @Model.NombrePlan</h2>
+    <p><strong>Duración:</strong> @Model.Duracion</p>
+    <p><strong>Precio:</strong> @Model.Precio.ToString("C")</p>
+    <p><strong>Descripción:</strong> @Model.Descripcion</p>
+
+    <form asp-action="ConfirmarPagoPlan" method="post">
+        <input type="hidden" name="idPlan" value="@Model.IdPlan" />
+        <button type="submit" class="btn btn-success">Confirmar Pago</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

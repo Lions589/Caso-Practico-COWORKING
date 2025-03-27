@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CoworkingGestion.Models.PlanesMembresia>
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Planes de Membresía";
+    var membresia = ViewBag.MembresiaUsuario as CoworkingGestion.Models.Membresia;
+}
+@if (User.IsInRole("Administrador"))
+{
+    <p>
+        <a asp-controller="PlanesMembresias" asp-action="Create" class="btn btn-primary">Crear Plan</a>
+    </p>
+}
+<h2 class="mb-4">Planes de Membresía</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+@if (membresia != null)
+{
+    <div class="alert alert-info">
+        <h5 class="mb-1">Tu Membresía Activa</h5>
+        <p><strong>Plan:</strong> @membresia.NombrePlan</p>
+        <p><strong>Duración:</strong> @membresia.Duracion</p>
+        <p><strong>Precio:</strong> @membresia.Precio.ToString("C")</p>
+        <p><strong>Descripción:</strong> @membresia.Descripcion</p>
+    </div>
+}
+
+<div class="row">
+    @foreach (var plan in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">@plan.NombrePlan</h4>
+                    <p class="card-text">@plan.Descripcion</p>
+                    <p><strong>Duración:</strong> @plan.Duracion</p>
+                    <p><strong>Precio:</strong> @plan.Precio.ToString("C")</p>
+                    <a asp-controller="Payment" asp-action="PagarMembresia" asp-route-idPlan="@plan.IdPlan" class="btn btn-primary btn-block">Adquirir</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

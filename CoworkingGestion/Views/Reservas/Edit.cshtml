@@ -1,0 +1,86 @@
+﻿@model CoworkingGestion.Models.Reserva
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Editar Reserva";
+    // Convertir ViewData["Espacios"] a IEnumerable<Espacio>
+    var espacios = ViewData["Espacios"] as IEnumerable<CoworkingGestion.Models.Espacio>;
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<h2>Editar Reserva</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="IdReserva" />
+
+    <div class="form-group">
+        <label asp-for="IdEspacio" class="control-label">Espacio</label>
+        <select asp-for="IdEspacio" class="form-control" id="IdEspacio"
+                asp-items="@(new SelectList(espacios, "IdEspacio", "Nombre", Model.IdEspacio))">
+            <option value="0">Seleccione un espacio</option>
+        </select>
+        <span asp-validation-for="IdEspacio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaInicio" class="control-label"></label>
+        <input asp-for="FechaInicio" class="form-control" type="datetime-local" />
+        <span asp-validation-for="FechaInicio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaFin" class="control-label"></label>
+        <input asp-for="FechaFin" class="form-control" type="datetime-local" />
+        <span asp-validation-for="FechaFin" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Estado" class="control-label"></label>
+        <input asp-for="Estado" class="form-control" readonly/>
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Costo" class="control-label"></label>
+        <input asp-for="Costo" class="form-control" id="Costo" readonly />
+        <span asp-validation-for="Costo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CodigoQr" class="control-label"></label>
+        <input asp-for="CodigoQr" class="form-control" readonly/>
+        <span asp-validation-for="CodigoQr" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    <script>
+        // Proyectar solo las propiedades necesarias para evitar el loop de referencias
+        var espacios = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+        (ViewData["Espacios"] as IEnumerable<CoworkingGestion.Models.Espacio>)
+        .Select(e => new { e.IdEspacio, e.Nombre, e.Costo })
+        ));
+        var select = document.getElementById("IdEspacio");
+        var costoInput = document.getElementById("Costo");
+
+        select.addEventListener("change", function () {
+            var selectedId = parseInt(this.value);
+            var espacio = espacios.find(function (e) { return e.IdEspacio === selectedId; });
+            if (espacio) {
+                costoInput.value = espacio.Costo;
+            } else {
+                costoInput.value = "";
+            }
+        });
+    </script>
+}
+

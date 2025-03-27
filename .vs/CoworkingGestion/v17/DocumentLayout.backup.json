@@ -1,0 +1,163 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|c:\\users\\detpc\\source\\repos\\coworkinggestion\\coworkinggestion\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|solutionrelative:coworkinggestion\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|c:\\users\\detpc\\source\\repos\\coworkinggestion\\coworkinggestion\\views\\shared\\_dashboardlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|solutionrelative:coworkinggestion\\views\\shared\\_dashboardlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|c:\\users\\detpc\\source\\repos\\coworkinggestion\\coworkinggestion\\views\\reportes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|solutionrelative:coworkinggestion\\views\\reportes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|c:\\users\\detpc\\source\\repos\\coworkinggestion\\coworkinggestion\\coworkinggestion.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|solutionrelative:coworkinggestion\\coworkinggestion.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|c:\\users\\detpc\\source\\repos\\coworkinggestion\\coworkinggestion\\models\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B132D8B-9959-4BCE-BC0E-557E8337AEF2}|CoworkingGestion\\CoworkingGestion.csproj|solutionrelative:coworkinggestion\\models\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 107,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a34b1c5d-6d37-4a0c-a8b0-99f8e8158b48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "CoworkingGestion\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "CoworkingGestion\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T04:41:11.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Views\\Reportes\\Index.cshtml",
+              "RelativeDocumentMoniker": "CoworkingGestion\\Views\\Reportes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Views\\Reportes\\Index.cshtml",
+              "RelativeToolTip": "CoworkingGestion\\Views\\Reportes\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T04:34:07.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReportesController.cs",
+              "DocumentMoniker": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Models\\ReportesController.cs",
+              "RelativeDocumentMoniker": "CoworkingGestion\\Models\\ReportesController.cs",
+              "ToolTip": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Models\\ReportesController.cs",
+              "RelativeToolTip": "CoworkingGestion\\Models\\ReportesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T04:33:46.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_DashboardLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Views\\Shared\\_DashboardLayout.cshtml",
+              "RelativeDocumentMoniker": "CoworkingGestion\\Views\\Shared\\_DashboardLayout.cshtml",
+              "ToolTip": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\Views\\Shared\\_DashboardLayout.cshtml",
+              "RelativeToolTip": "CoworkingGestion\\Views\\Shared\\_DashboardLayout.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAwwIUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T04:28:52.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CoworkingGestion",
+              "DocumentMoniker": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\CoworkingGestion.csproj",
+              "RelativeDocumentMoniker": "CoworkingGestion\\CoworkingGestion.csproj",
+              "ToolTip": "C:\\Users\\DETPC\\source\\repos\\CoworkingGestion\\CoworkingGestion\\CoworkingGestion.csproj",
+              "RelativeToolTip": "CoworkingGestion\\CoworkingGestion.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-27T04:35:11.762Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 293,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Código QR de la Reserva";
+}
+
+<h2>Su Código QR</h2>
+
+@if (ViewBag.QrImage != null)
+{
+    <div class="mb-3 text-center">
+        <h4>Código QR de su reserva</h4>
+        <img src="data:image/png;base64,@ViewBag.QrImage" alt="QR Code" class="img-fluid" />
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        No se pudo generar el código QR. Intente nuevamente.
+    </div>
+}
+
+<a class="btn btn-primary" asp-controller="Reservas" asp-action="Index">Volver a Reservas</a>
+
+

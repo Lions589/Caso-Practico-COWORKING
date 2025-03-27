@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CoworkingGestion.Models.Membresia>
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Mis Membresías";
+    bool esAdmin = User.IsInRole("Administrador");
+}
+
+<h2>Mis Membresías</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (esAdmin)
+{
+    <p>
+        <a class="btn btn-primary" asp-controller="Membresias" asp-action="Create">Crear Membresía</a>
+    </p>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre del Plan</th>
+            <th>Duración</th>
+            <th>Precio</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.NombrePlan</td>
+                <td>@m.Duracion</td>
+                <td>@m.Precio.ToString("C")</td>
+                <td>@m.Descripcion</td>
+            </tr>
+        }
+    </tbody>
+</table>
